@@ -10,7 +10,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
     }
 
     async validate(username: string, password: string): Promise<any> {
-        const user = await this.authService.validateUser(username, password);
+        const user = await this.authService.validateUserCredentials(username, password);    // todo esto ha sido copiado descaradamente de la documentacion de nestjs
 
         if (!user) {
             throw new UnauthorizedException();
